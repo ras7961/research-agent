@@ -31,7 +31,8 @@ from agent.conversations import (
 
 load_dotenv()
 
-st.set_page_config(page_title="Research Agent", page_icon="🔎", layout="centered")
+
+st.set_page_config(page_title="Research Agent", page_icon="🕵️", layout="centered")
 
 
 @st.cache_resource
@@ -49,7 +50,7 @@ if "active_thread_id" not in st.session_state:
 
 # --- sidebar: conversation list, grouped new vs. past --------------------
 with st.sidebar:
-    st.subheader("🔎 Research Agent")
+    st.subheader("🕵️ Research Agent")
     st.caption("Conversations are saved to disk and persist across restarts.")
 
     if st.button("➕ New conversation", use_container_width=True):
@@ -85,10 +86,10 @@ with st.sidebar:
                 st.markdown(f"- [{s['title']}]({s['url']})")
 
 # --- main area -------------------------------------------------------------
-st.title("🔎 Research Agent")
+st.title(" 🕵️ Research Agent")
 
 if st.session_state.active_thread_id is None:
-    st.caption("Ask a research question to start a new conversation.")
+    st.caption("Ask a research question to start a conversation.")
 else:
     active_title = next(
         (c["title"] for c in list_conversations() if c["thread_id"] == st.session_state.active_thread_id),
@@ -171,7 +172,7 @@ if question:
                     for call in last_msg.tool_calls:
                         with step_area:
                             if call["name"] == "web_search":
-                                st.markdown(f"🔍 **Searching:** `{call['args'].get('query', '')}`")
+                                st.markdown(f"🕵️ **Searching:** `{call['args'].get('query', '')}`")
                             elif call["name"] == "read_page":
                                 st.markdown(f"📖 **Reading:** {call['args'].get('url', '')}")
                             else:

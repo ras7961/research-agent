@@ -1,3 +1,5 @@
+![alt text](image.png)
+
 # Research Agent
 
 A tool-calling web research agent built with LangGraph, with a
@@ -9,6 +11,8 @@ saved to disk, so everything survives closing the browser or
 restarting the app.
 
 ## How the agent works
+
+![alt text](image-1.png)
 
 ```
 START -> planner --(tool calls?)--> researcher -> planner   (loop)
